@@ -7,6 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('ember'),
+  this.route('react'),
+  this.route('web-component')
 });
 
 export default Router;

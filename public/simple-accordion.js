@@ -43,16 +43,16 @@ class SimpleAccordionHeader extends HTMLElement {
 
   constructor() {
     super();
-    this.setAttribute('class', 'accordion__header');
+    // this.setAttribute('class', 'accordion__header');
   }
 
   connectedCallback() {
-    this.innerHTML = `
-      <h4>${this.value}</h4>
-      <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-        <path d="M23.836 33.723l-.598.479L.249 15.769l3.284-2.633 20.302 16.279 20.302-16.279 3.284 2.633-22.989 18.433-.598-.479z"></path>
-      </svg>
-    `
+    // this.innerHTML = `
+    //   <h4>${this.value}</h4>
+    //   <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+    //     <path d="M23.836 33.723l-.598.479L.249 15.769l3.284-2.633 20.302 16.279 20.302-16.279 3.284 2.633-22.989 18.433-.598-.479z"></path>
+    //   </svg>
+    // `
   }
 }
 customElements.define('simple-accordion-header', SimpleAccordionHeader);
@@ -60,7 +60,7 @@ customElements.define('simple-accordion-header', SimpleAccordionHeader);
 class SimpleAccordionBody extends HTMLElement {
   constructor() {
     super();
-    this.setAttribute('class', 'accordion__body');
+    // this.setAttribute('class', 'accordion__body');
   }
 }
 customElements.define('simple-accordion-body', SimpleAccordionBody);
