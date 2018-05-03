@@ -1,6 +1,6 @@
 .page-container { height: 100vh; }
 
-.card { min-height: 500px; }
+.card { min-height: 700px; }
 
 simple-accordion {
   display: block;
@@ -9,3 +9,7 @@ simple-accordion {
 }
 
 simple-accordion-body { display: block; }
+
+.navigation.tabs--horizontal {
+  margin: 2em 0;
+}
