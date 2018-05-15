@@ -53,8 +53,15 @@ class SimpleAccordionHeader extends HTMLElement {
     this.setAttribute('value', newValue);
   }
 
+  constructor() {
+    super();
+    this.headerContent = document.createElement('h4');
+  }
+
   connectedCallback() {
     this.setAttribute('class', 'accordion__header');
+    // let value = this.getAttribute('value');
+    // this.appendChild(this.headerContent).append(value);
     this.innerHTML = `
       <h4>${this.value}</h4>
       <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
