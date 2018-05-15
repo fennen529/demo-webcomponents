@@ -1,4 +1,10 @@
+//Main wrapper
+//
 class SimpleAccordion extends HTMLElement {
+  static get observedAttributes() {
+    return ['collapsed']
+  }
+
   get collapsed() {
     return this.hasAttribute('collapsed');
   }
@@ -32,7 +38,13 @@ class SimpleAccordion extends HTMLElement {
 }
 customElements.define('simple-accordion', SimpleAccordion);
 
+//Header
+//
 class SimpleAccordionHeader extends HTMLElement {
+  static get observedAttributes() {
+    return ['value']
+  }
+
   get value() {
     return this.getAttribute('value');
   }
@@ -53,6 +65,67 @@ class SimpleAccordionHeader extends HTMLElement {
 }
 customElements.define('simple-accordion-header', SimpleAccordionHeader);
 
+//Shadow header
+//
+let tmpl = document.createElement('template');
+tmpl.innerHTML = `
+  <style>
+    :host {
+      transition-property: background-color;
+      transition-duration: .25s;
+      transition-timing-function: ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0;
+      border: 1px solid #dbdee0;
+      border-radius: 4px 4px 0 0;
+      background-color: #dbdee0;
+      padding: 1.07143em 1.42857em;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    h4 {
+      font-size: 1rem;
+      line-height: 1.3;
+      color: currentColor;
+      font-family: Noto Sans,Helvetica,Arial,sans-serif;
+      font-weight: 400;
+      margin: 0;
+    }
+  </style>
+  <h4>Shadow Header</h4>
+  <slot></slot>
+`;
+
+class SimpleShadowAccordionHeader extends HTMLElement {
+  static get observedAttributes() {
+    return ['value']
+  }
+
+  get value() {
+    return this.getAttribute('value');
+  }
+
+  set value(newValue) {
+    this.setAttribute('value', newValue);
+  }
+
+  constructor() {
+    super();
+    const shadowRoot = this.attachShadow({mode: 'open'});
+    shadowRoot.appendChild(tmpl.content.cloneNode(true));
+  }
+
+  // connectedCallback() {
+  //   this.setAttribute('class', 'accordion__header');
+  // }
+}
+customElements.define('simple-shadow-accordion-header', SimpleShadowAccordionHeader);
+
+//Body
+//
 class SimpleAccordionBody extends HTMLElement {
   connectedCallback() {
     this.setAttribute('class', 'accordion__body');

@@ -1,10 +1,10 @@
 import Component from '@ember/component';
 import React from 'npm:react';
 
-function Accordion(value) {
+export default function(props) {
   return (
     <simple-accordion>
-      <simple-accordion-header value="Package"></simple-accordion-header>
+      <simple-accordion-header value="Accordion Header"></simple-accordion-header>
       <simple-accordion-body>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
@@ -12,17 +12,5 @@ function Accordion(value) {
                 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </simple-accordion-body>
     </simple-accordion>
-  );
-}
-
-const page = (
-  <Accordion />
-);
-
-// ReactDOM.render(page, document.getElementById('root'));
-
-export default function(props) {
-  return (
-    <Accordion />
   );
 }
