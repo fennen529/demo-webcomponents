@@ -126,7 +126,7 @@ class SimpleShadowAccordionHeader extends HTMLElement {
   }
 
   connectedCallback() {
-    this.setAttribute('class', 'accordion__header');
+    // this.setAttribute('class', 'accordion__header');
     let value = this.getAttribute('value');
     this.shadowRoot.querySelector('h4').append(value);
   }
