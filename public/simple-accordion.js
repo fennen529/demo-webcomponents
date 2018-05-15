@@ -102,7 +102,7 @@ tmpl.innerHTML = `
       margin: 0;
     }
   </style>
-  <h4>Shadow Header</h4>
+  <h4></h4>
   <slot></slot>
 `;
 
@@ -125,9 +125,11 @@ class SimpleShadowAccordionHeader extends HTMLElement {
     shadowRoot.appendChild(tmpl.content.cloneNode(true));
   }
 
-  // connectedCallback() {
-  //   this.setAttribute('class', 'accordion__header');
-  // }
+  connectedCallback() {
+    this.setAttribute('class', 'accordion__header');
+    let value = this.getAttribute('value');
+    this.shadowRoot.querySelector('h4').append(value);
+  }
 }
 customElements.define('simple-shadow-accordion-header', SimpleShadowAccordionHeader);
 
